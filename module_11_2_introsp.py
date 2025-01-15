@@ -42,9 +42,10 @@ class Sedan(Vehicle):
 
 def  introspection_info(obj):
     rez={}
-    if inspect.isclass(obj):
+    try:
         vars_ = vars(obj)
-    else: vars_=['...']
+    except:
+        vars_=['...']
 
     rez.update({'type':type(obj),
                 'attributes':vars_,
